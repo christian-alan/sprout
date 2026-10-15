@@ -1,0 +1,633 @@
+{
+  "_note": "Sample data from the design prototype. Characters map to assets/mascots. Statuses: working | needs | ready | scheduled | done. \"line\" is the current one-liner; \"time\" is display text. Cake illustration = two stacked cake layers plus a candle.",
+  "assistant": {
+    "name": "Sprout",
+    "character": "sprout"
+  },
+  "characters": [
+    {
+      "key": "sprout",
+      "name": "Sprout",
+      "accent": "#3f86d8",
+      "tint": "#e6f1fd",
+      "mid": "#cfe3fa"
+    },
+    {
+      "key": "bloom",
+      "name": "Bloom",
+      "accent": "#7d5ce6",
+      "tint": "#efeaff",
+      "mid": "#ddd3fc"
+    },
+    {
+      "key": "pop",
+      "name": "Pop",
+      "accent": "#e0538c",
+      "tint": "#ffe8f1",
+      "mid": "#ffd3e3"
+    },
+    {
+      "key": "dash",
+      "name": "Dash",
+      "accent": "#1f9a8c",
+      "tint": "#ddf5f1",
+      "mid": "#c3ece6"
+    },
+    {
+      "key": "clover",
+      "name": "Clover",
+      "accent": "#5c9e35",
+      "tint": "#ebf6e0",
+      "mid": "#d6eec2"
+    },
+    {
+      "key": "tile",
+      "name": "Tile",
+      "accent": "#e27a3c",
+      "tint": "#fff0e4",
+      "mid": "#ffdcc4"
+    },
+    {
+      "key": "keys",
+      "name": "Keys",
+      "accent": "#c78a12",
+      "tint": "#fff6dc",
+      "mid": "#fcebb6"
+    },
+    {
+      "key": "rover",
+      "name": "Rover",
+      "accent": "#e05a49",
+      "tint": "#ffebe7",
+      "mid": "#ffd2ca"
+    }
+  ],
+  "activeTasks": [
+    {
+      "id": "dinner",
+      "title": "Saturday dinner",
+      "status": "ready",
+      "time": "yesterday 21:40",
+      "line": "Bistro Linnea, Sat 19:30, table for four.",
+      "pct": 100,
+      "summary": "Sat 19:30 · table for 4",
+      "resultLabel": "Reservation",
+      "fields": [
+        {
+          "label": "Where",
+          "value": "Bistro Linnea, Södermalm"
+        },
+        {
+          "label": "When",
+          "value": "Saturday 19:30"
+        },
+        {
+          "label": "Guests",
+          "value": "4"
+        }
+      ],
+      "afterNote": "I'll add it to your calendar.",
+      "actionLabel": "Confirm",
+      "doneLine": "Booked for Saturday at 19:30.",
+      "doneMsg": "Booked Bistro Linnea for Saturday at 19:30. It's in your calendar.",
+      "steps": [
+        "Checked 8 places on Södermalm",
+        "Found a table for four",
+        "Confirm the booking"
+      ],
+      "idx": 2,
+      "character": "pop"
+    },
+    {
+      "id": "train",
+      "title": "Train to Uppsala",
+      "status": "working",
+      "time": "yesterday 22:05",
+      "line": "Comparing departures after 17:00",
+      "pct": 60,
+      "result": "17:22 from Stockholm C, arrives 18:01.",
+      "readyMsg": "Found your train: 17:22 from Stockholm C, arriving 18:01. Want me to buy the ticket?",
+      "summary": "17:22 → 18:01 · 98 kr",
+      "resultLabel": "Ticket",
+      "fields": [
+        {
+          "label": "Departs",
+          "value": "17:22 · Stockholm C"
+        },
+        {
+          "label": "Arrives",
+          "value": "18:01 · Uppsala C"
+        },
+        {
+          "label": "Price",
+          "value": "98 kr"
+        }
+      ],
+      "afterNote": "It goes straight to your Wallet.",
+      "actionLabel": "Buy ticket · 98 kr",
+      "doneLine": "Ticket bought for the 17:22.",
+      "doneMsg": "Ticket bought. It's in your Wallet.",
+      "steps": [
+        "Checked departures after 17:00",
+        "Comparing prices",
+        "Pick a train"
+      ],
+      "idx": 1,
+      "character": "dash"
+    }
+  ],
+  "initialMessages": [
+    {
+      "id": 1,
+      "sep": "Yesterday 21:40"
+    },
+    {
+      "id": 2,
+      "f": "u",
+      "t": "Can you book a table for four on Saturday? Somewhere on Södermalm."
+    },
+    {
+      "id": 3,
+      "f": "a",
+      "t": "On it. I'll check a few places and come back with options.",
+      "cards": [
+        "dinner"
+      ]
+    },
+    {
+      "id": 4,
+      "sep": "Today 07:55"
+    },
+    {
+      "id": 5,
+      "f": "a",
+      "t": "Good morning! Your Saturday table is ready to confirm, and I'm still comparing trains to Uppsala.",
+      "action": {
+        "task": "dinner",
+        "status": "ready",
+        "label": "Confirm"
+      }
+    }
+  ],
+  "demoRequests": {
+    "dentist": "Remind me to call mum tonight, and find a dentist near work that takes new patients",
+    "cake": "Can you find a birthday cake for my mom? She is celebrating her birthday next Saturday.",
+    "history": "When did I last see the dentist?"
+  },
+  "cakeOptions": [
+    {
+      "name": "Raspberry princess cake",
+      "bakery": "Söder Sockerbageri",
+      "serves": "10",
+      "price": "465 kr",
+      "tag": "Classic Swedish",
+      "illustration": {
+        "topLayer": "#9fd27a",
+        "baseLayer": "#f7c6d6",
+        "tileBackground": "#fdeef3"
+      }
+    },
+    {
+      "name": "Lemon & elderflower",
+      "bakery": "Konditori Älv",
+      "serves": "8",
+      "price": "420 kr",
+      "tag": "Light, not too sweet",
+      "illustration": {
+        "topLayer": "#fff1a8",
+        "baseLayer": "#f6e7c8",
+        "tileBackground": "#fdf7e6"
+      }
+    },
+    {
+      "name": "Chocolate truffle",
+      "bakery": "Bageri Lumen",
+      "serves": "8",
+      "price": "445 kr",
+      "tag": "Most popular",
+      "illustration": {
+        "topLayer": "#6b4232",
+        "baseLayer": "#9a6a52",
+        "tileBackground": "#f3ece7"
+      }
+    }
+  ],
+  "history": [
+    {
+      "id": "p-tap",
+      "month": "October",
+      "date": "Oct 10",
+      "title": "Fix the leaking tap",
+      "outcome": "Plumber booked for Thursday 09:00",
+      "fields": [
+        {
+          "label": "Landlord",
+          "value": "Replied within 2 hours"
+        },
+        {
+          "label": "Plumber",
+          "value": "Thursday 09:00"
+        },
+        {
+          "label": "Cost",
+          "value": "Covered by landlord"
+        }
+      ],
+      "repeatLabel": "Report another issue",
+      "repeatPrompt": "Tell my landlord about another issue in the apartment",
+      "character": "keys",
+      "category": "Home",
+      "doneLine": "Plumber booked for Thursday 09:00"
+    },
+    {
+      "id": "p-tariff",
+      "month": "October",
+      "date": "Oct 6",
+      "title": "Electricity plan",
+      "outcome": "Switched to fixed price, saves 180 kr a month",
+      "fields": [
+        {
+          "label": "Old plan",
+          "value": "Variable, 2.6 kr/kWh"
+        },
+        {
+          "label": "New plan",
+          "value": "Fixed, 1.9 kr/kWh"
+        },
+        {
+          "label": "Saving",
+          "value": "About 180 kr a month"
+        }
+      ],
+      "repeatLabel": "Compare prices again",
+      "repeatPrompt": "Compare electricity prices again and tell me if I should switch",
+      "character": "dash",
+      "category": "Money",
+      "doneLine": "Switched to fixed price, saves 180 kr a month"
+    },
+    {
+      "id": "p-lisbon",
+      "month": "October",
+      "date": "Oct 2",
+      "title": "Lisbon weekend",
+      "outcome": "Flights and hotel booked, Nov 14–17",
+      "fields": [
+        {
+          "label": "Flights",
+          "value": "ARN → LIS, Nov 14"
+        },
+        {
+          "label": "Hotel",
+          "value": "3 nights in Alfama"
+        },
+        {
+          "label": "Total",
+          "value": "6 240 kr"
+        }
+      ],
+      "repeatLabel": "Plan another trip",
+      "repeatPrompt": "Plan a long weekend trip for spring",
+      "character": "tile",
+      "category": "Travel",
+      "doneLine": "Flights and hotel booked, Nov 14–17"
+    },
+    {
+      "id": "p-trip",
+      "month": "September",
+      "date": "Sep 27",
+      "title": "Road trip to Lofoten",
+      "outcome": "Seven-day route saved",
+      "fields": [
+        {
+          "label": "Route",
+          "value": "Narvik → Å, 7 days"
+        },
+        {
+          "label": "Car",
+          "value": "Rental in Narvik"
+        },
+        {
+          "label": "Stops",
+          "value": "5 overnight stays"
+        }
+      ],
+      "repeatLabel": "Plan it for next summer",
+      "repeatPrompt": "Plan the Lofoten road trip again for next summer",
+      "character": "rover",
+      "category": "Travel",
+      "doneLine": "Seven-day route saved"
+    },
+    {
+      "id": "p-mum60",
+      "month": "September",
+      "date": "Sep 19",
+      "title": "Mum's 60th lunch",
+      "outcome": "Lunch for 8 booked at Villa Ekbacken",
+      "fields": [
+        {
+          "label": "Where",
+          "value": "Villa Ekbacken"
+        },
+        {
+          "label": "When",
+          "value": "Sat Oct 18, 13:00"
+        },
+        {
+          "label": "Guests",
+          "value": "8"
+        }
+      ],
+      "repeatLabel": "Book a family lunch",
+      "repeatPrompt": "Book a family lunch for next month",
+      "character": "clover",
+      "category": "Family",
+      "doneLine": "Lunch for 8 booked at Villa Ekbacken"
+    },
+    {
+      "id": "p-shoes",
+      "month": "September",
+      "date": "Sep 12",
+      "title": "Trail running shoes",
+      "outcome": "Ordered in size 44, delivered Sep 15",
+      "fields": [
+        {
+          "label": "Size",
+          "value": "44"
+        },
+        {
+          "label": "Price",
+          "value": "1 299 kr"
+        },
+        {
+          "label": "Delivered",
+          "value": "Sep 15"
+        }
+      ],
+      "repeatLabel": "Reorder the same pair",
+      "repeatPrompt": "Reorder the same trail running shoes in size 44",
+      "character": "pop",
+      "category": "Shopping",
+      "doneLine": "Ordered in size 44, delivered Sep 15"
+    },
+    {
+      "id": "p-gym",
+      "month": "September",
+      "date": "Sep 3",
+      "title": "Cancel gym membership",
+      "outcome": "Cancelled, 299 kr refunded",
+      "fields": [
+        {
+          "label": "Ended",
+          "value": "Sep 30"
+        },
+        {
+          "label": "Refund",
+          "value": "299 kr"
+        },
+        {
+          "label": "Confirmation",
+          "value": "Saved to Files"
+        }
+      ],
+      "repeatLabel": "Find a new gym",
+      "repeatPrompt": "Find a gym near work with a monthly plan",
+      "character": "keys",
+      "category": "Money",
+      "doneLine": "Cancelled, 299 kr refunded"
+    },
+    {
+      "id": "p-dentist",
+      "month": "August",
+      "date": "Aug 28",
+      "title": "Dentist check-up",
+      "outcome": "Visited Kista Tandvård on Aug 30",
+      "fields": [
+        {
+          "label": "Clinic",
+          "value": "Kista Tandvård"
+        },
+        {
+          "label": "When",
+          "value": "Aug 30, 08:30"
+        },
+        {
+          "label": "Next check-up",
+          "value": "In about a year"
+        }
+      ],
+      "repeatLabel": "Book again",
+      "repeatPrompt": "Book my dentist check-up again at Kista Tandvård",
+      "character": "bloom",
+      "category": "Health",
+      "doneLine": "Visited Kista Tandvård on Aug 30"
+    },
+    {
+      "id": "p-toast",
+      "month": "August",
+      "date": "Aug 21",
+      "title": "Wedding toast",
+      "outcome": "Final draft, 52 seconds read aloud",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "52 seconds"
+        },
+        {
+          "label": "Drafts",
+          "value": "3"
+        },
+        {
+          "label": "Saved to",
+          "value": "Notes"
+        }
+      ],
+      "repeatLabel": "Write another toast",
+      "repeatPrompt": "Help me write a short toast",
+      "character": "tile",
+      "category": "Writing",
+      "doneLine": "Final draft, 52 seconds read aloud"
+    },
+    {
+      "id": "p-car",
+      "month": "August",
+      "date": "Aug 9",
+      "title": "Car service",
+      "outcome": "Serviced at Kista Bil on Aug 14",
+      "fields": [
+        {
+          "label": "Garage",
+          "value": "Kista Bil"
+        },
+        {
+          "label": "When",
+          "value": "Aug 14"
+        },
+        {
+          "label": "Cost",
+          "value": "2 450 kr"
+        }
+      ],
+      "repeatLabel": "Book the next service",
+      "repeatPrompt": "Book a car service again at the same garage",
+      "character": "rover",
+      "category": "Home",
+      "doneLine": "Serviced at Kista Bil on Aug 14"
+    },
+    {
+      "id": "p-gbg",
+      "month": "July",
+      "date": "Jul 18",
+      "title": "Train to Gothenburg",
+      "outcome": "Ticket bought for the 17:05",
+      "fields": [
+        {
+          "label": "Departs",
+          "value": "17:05 · Stockholm C"
+        },
+        {
+          "label": "Arrives",
+          "value": "20:10 · Göteborg C"
+        },
+        {
+          "label": "Price",
+          "value": "395 kr"
+        }
+      ],
+      "repeatLabel": "Buy the same trip",
+      "repeatPrompt": "Buy a train ticket to Gothenburg on Friday afternoon",
+      "character": "dash",
+      "category": "Travel",
+      "doneLine": "Ticket bought for the 17:05"
+    },
+    {
+      "id": "p-gift",
+      "month": "July",
+      "date": "Jul 6",
+      "title": "Birthday gift for Sara",
+      "outcome": "Ceramics class voucher sent",
+      "fields": [
+        {
+          "label": "Gift",
+          "value": "Ceramics class for two"
+        },
+        {
+          "label": "Price",
+          "value": "1 100 kr"
+        },
+        {
+          "label": "Sent",
+          "value": "By email, Jul 7"
+        }
+      ],
+      "repeatLabel": "Find another gift",
+      "repeatPrompt": "Find a birthday gift for a friend",
+      "character": "pop",
+      "category": "Shopping",
+      "doneLine": "Ceramics class voucher sent"
+    },
+    {
+      "id": "p-midsummer",
+      "month": "June",
+      "date": "Jun 16",
+      "title": "Midsummer lunch",
+      "outcome": "Table for 6 booked on Midsummer Eve",
+      "fields": [
+        {
+          "label": "Where",
+          "value": "Café Ängen"
+        },
+        {
+          "label": "When",
+          "value": "Jun 19, 12:30"
+        },
+        {
+          "label": "Guests",
+          "value": "6"
+        }
+      ],
+      "repeatLabel": "Book it for next year",
+      "repeatPrompt": "Book a Midsummer lunch for 6 next year",
+      "character": "clover",
+      "category": "Food",
+      "doneLine": "Table for 6 booked on Midsummer Eve"
+    },
+    {
+      "id": "p-passport",
+      "month": "June",
+      "date": "Jun 4",
+      "title": "Passport renewal",
+      "outcome": "Appointment booked, picked up Jun 20",
+      "fields": [
+        {
+          "label": "Appointment",
+          "value": "Jun 9, 10:15"
+        },
+        {
+          "label": "Picked up",
+          "value": "Jun 20"
+        },
+        {
+          "label": "Valid until",
+          "value": "2031"
+        }
+      ],
+      "repeatLabel": "Remind me before it expires",
+      "repeatPrompt": "Remind me to renew my passport before it expires in 2031",
+      "character": "tile",
+      "category": "Admin",
+      "doneLine": "Appointment booked, picked up Jun 20"
+    },
+    {
+      "id": "p-flowers",
+      "month": "May",
+      "date": "May 29",
+      "title": "Mother's Day flowers",
+      "outcome": "Peonies delivered on May 31",
+      "fields": [
+        {
+          "label": "Bouquet",
+          "value": "Peonies"
+        },
+        {
+          "label": "Delivered",
+          "value": "May 31, morning"
+        },
+        {
+          "label": "Price",
+          "value": "495 kr"
+        }
+      ],
+      "repeatLabel": "Send flowers again",
+      "repeatPrompt": "Send mum flowers this weekend",
+      "character": "bloom",
+      "category": "Family",
+      "doneLine": "Peonies delivered on May 31"
+    },
+    {
+      "id": "p-bike",
+      "month": "May",
+      "date": "May 22",
+      "title": "Bike repair",
+      "outcome": "Fixed and picked up, 450 kr",
+      "fields": [
+        {
+          "label": "Shop",
+          "value": "Cykelverkstan Kista"
+        },
+        {
+          "label": "Picked up",
+          "value": "May 24"
+        },
+        {
+          "label": "Cost",
+          "value": "450 kr"
+        }
+      ],
+      "repeatLabel": "Book a tune-up",
+      "repeatPrompt": "Book a bike tune-up at the same shop",
+      "character": "keys",
+      "category": "Home",
+      "doneLine": "Fixed and picked up, 450 kr"
+    }
+  ]
+}
